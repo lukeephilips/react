@@ -4,7 +4,8 @@ import Ticket from "./Ticket";
 const TicketList = (props) => {
   let styles = {
     border: '1px solid black',
-    width: '300px'
+    width: '300px',
+    padding: '20px',
   }
   return (
     <div style={styles}>
