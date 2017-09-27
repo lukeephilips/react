@@ -1,23 +1,25 @@
 import React from "react";
-import Post from "./Post"
+import Post from "./Post";
+import PropTypes from "prop-types"
 
 function PostList(props){
-  let posts = props.posts;
-  let outputPosts =
-    posts.map(function (post){
-      return <Post
-        title={post.title}
-        author={post.author}
-        content={post.content}
-        key={post.author + post.title }
-      />
-    });
 
   return (
     <div>
-      {outputPosts}
+      {props.posts.map((post) =>
+          <Post
+            title={post.title}
+            author={post.author}
+            avatar={post.avatar}
+            content={post.content}
+            key={post.author + post.title }
+          />
+        )}
     </div>
   )
+  PostList.propTypes = {
+    posts: propTypes.array
+  }
 }
 
 export default PostList;

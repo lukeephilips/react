@@ -5,7 +5,6 @@ import Search from "./Search";
 function Header(props){
   let style = {
     height: "100px",
-    width: "100%",
     backgroundColor: "lightblue",
     fontFamily: "Tahoma",
     marginBottom: "20px",
