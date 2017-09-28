@@ -12,7 +12,9 @@ function PostList(props){
             author={post.author}
             avatar={post.avatar}
             content={post.content}
-            key={post.author + post.title }
+            id={post.id}
+            key={post.id }
+            handleDelete={props.handleDelete}
           />
         )}
     </div>

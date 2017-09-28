@@ -8,6 +8,9 @@ function Post(props){
     margin: "5px",
     width: "250px",
   }
+  function deletePost() {
+    props.handleDelete(props)
+  }
   return (
     <div style={style}>
       <div className="row">
@@ -18,6 +21,7 @@ function Post(props){
         </div>
       </div>
         <p>{props.content}</p>
+        <button onClick={deletePost} className="btn btn-danger btn-xs">Delete</button>
     </div>
   )
 }

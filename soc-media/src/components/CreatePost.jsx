@@ -14,9 +14,11 @@ class CreatePost extends React.Component{
     const {_content, _title} = this.refs;
     let author = "Billy Bones";
     let avatar = "http://i231.photobucket.com/albums/ee4/koolitzzz/GangstaChimp.jpg"
-    var newPost = new Post(author, avatar, _title.value, _content.value, _content.title)
+    var newPost = new Post(author, avatar, _title.value, _content.value)
     console.log(newPost)
     this.props.handleNewPost(newPost);
+    _title.value = "";
+    _content.value = "";
   }
   render(){
     const style = {
