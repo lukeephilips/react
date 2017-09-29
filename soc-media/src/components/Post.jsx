@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
 function Post(props){
   let style = {
@@ -21,7 +22,7 @@ function Post(props){
         </div>
       </div>
         <p>{props.content}</p>
-        <button onClick={deletePost} className="btn btn-danger btn-xs">Delete</button>
+        <Button onClick={deletePost} bsStyle="danger" bsSize="xsmall">Delete</Button>
     </div>
   )
 }

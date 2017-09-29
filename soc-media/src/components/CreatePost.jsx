@@ -1,5 +1,9 @@
 import React from "react";
-import Post from "../models/Post.js"
+import Post from "../models/Post.js";
+import { FormControl } from "react-bootstrap";
+import { FormGroup } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+
 
 class CreatePost extends React.Component{
   constructor(props){
@@ -12,32 +16,37 @@ class CreatePost extends React.Component{
   updateContent(){
     event.preventDefault()
     const {_content, _title} = this.refs;
+    console.log(this.refs);
     let author = "Billy Bones";
     let avatar = "http://i231.photobucket.com/albums/ee4/koolitzzz/GangstaChimp.jpg"
     var newPost = new Post(author, avatar, _title.value, _content.value)
+    console.log("updatecontent");
     console.log(newPost)
-    this.props.handleNewPost(newPost);
+    this.props.passthroughPost(newPost);
     _title.value = "";
     _content.value = "";
   }
   render(){
     const style = {
-      border: "solid 1px blue",
-      borderRadius: "5px",
       padding: "10px",
       marginBottom: "5px",
       width: "250px",
-      textAlign: "center"
 
     }
     return (
       <div style={style}>
-        <input ref= "_title" placeholder="title" className="form-control" />
-        <textarea
-          placeholder="Say something"
-          ref = "_content" className="form-control"
-        />
-        <button onClick={this.updateContent} className="btn btn-success">Beep</button>
+         <FormGroup>
+          <input
+            type="text"
+            placeholder="title"
+            className="form-control"
+            ref= "_title" />
+          <textarea
+            placeholder="Say something"
+            className="form-control"
+            ref = "_content" />
+          <Button onClick={this.updateContent} bsStyle="success">Beep</Button>
+        </FormGroup>
       </div>
     )
   }

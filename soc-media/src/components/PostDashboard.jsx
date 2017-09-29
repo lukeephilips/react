@@ -1,7 +1,7 @@
 import React from "react";
+import CreatePostControl from "./CreatePostControl";
 import PostList from "./PostList";
 import AuthorList from "./AuthorList";
-import CreatePost from "./CreatePost";
 import PropTypes from "prop-types";
 
 
@@ -10,6 +10,7 @@ class PostDashboard extends React.Component{
   constructor(props) {
     super(props);
     this.state ={
+      showForm: false,
       posts: [
         {
           title: "hello world",
@@ -43,31 +44,32 @@ class PostDashboard extends React.Component{
     }
     this.handleNewPost = this.handleNewPost.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    
 
   }
   handleNewPost(newPost) {
+    console.log(newPost)
+
     let newPostsList = this.state.posts.slice();
     newPostsList.push(newPost);
     this.setState({posts: newPostsList});
   }
   handleDelete(p) {
-    console.log(p)
     let newPostsList = this.state.posts.filter(function (post){return post.content !== p.content})
     this.setState({posts: newPostsList});
   }
   render(){
-
     return (
-      <div className="row">
-        <div className="col-xs-9">
-          <CreatePost handleNewPost={this.handleNewPost} />
-          <PostList posts={this.state.posts} handleDelete={this.handleDelete} />
-        </div>
-        <div className="col-xs-3">
-          <AuthorList posts={this.state.posts} />
-        </div>
+    <div className="row">
+      <div className="col-xs-9">
+        <CreatePostControl handleNewPost={this.handleNewPost} />
+        <PostList posts={this.state.posts} handleDelete={this.handleDelete} />
       </div>
-    )
+      <div className="col-xs-3">
+        <AuthorList posts={this.state.posts} />
+      </div>
+    </div>
+  )
   }
 }
 
