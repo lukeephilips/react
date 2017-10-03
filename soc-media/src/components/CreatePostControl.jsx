@@ -1,6 +1,5 @@
 import React from "react";
 import CreatePost from "./CreatePost";
-import PropTypes from "prop-types";
 import { Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 
@@ -34,7 +33,7 @@ class CreatePostControl extends React.Component{
         <Modal
           show={this.state.showForm}
           onHide={this.hideForm}
-          bsSize="xsmall">
+          bsSize="small">
           <Modal.Header>Say Something</Modal.Header>
           <Modal.Body>
             <CreatePost passthroughPost={this.passthroughPost} />

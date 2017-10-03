@@ -19,7 +19,7 @@ class CreatePost extends React.Component{
     console.log(this.refs);
     let author = "Billy Bones";
     let avatar = "http://i231.photobucket.com/albums/ee4/koolitzzz/GangstaChimp.jpg"
-    var newPost = new Post(author, avatar, _title.value, _content.value)
+    var newPost = new Post(author , _title.value, avatar, _content.value)
     console.log("updatecontent");
     console.log(newPost)
     this.props.passthroughPost(newPost);

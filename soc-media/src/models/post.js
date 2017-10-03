@@ -1,10 +1,16 @@
+import Moment from "moment";
+
 class Post {
-  constructor(author, avatar, title, content, id) {
+  constructor(author, title, avatar, content) {
     this.author = author;
     this.title = title;
     this.avatar = avatar;
     this.content = content;
-    this.id = id;
+    this.postTime = new Moment();
+    this.timeSincePost = "just now";
+  }
+  setTimeSincePost(){
+    this.timeSincePost =  this.postTime.fromNow(true);
   }
 }
 
