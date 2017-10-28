@@ -2,6 +2,8 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import Moment from "moment"
+import DeletePost from "./DeletePost";
+
 
 function Post(props){
   let style = {
@@ -12,9 +14,8 @@ function Post(props){
     width: "250px",
     height: "200px",
   }
-  function deletePost() {
-    props.handleDelete(props)
-  }
+  const timeSinceOpened = new Moment().to(props.postTime);
+
   return (
     <div style={style} className="col-xs-3">
       <div className="row">
@@ -25,8 +26,8 @@ function Post(props){
         </div>
       </div>
         <p>{props.content}</p>
-        <p>{props.timeSincePost} ago</p>
-        <Button onClick={deletePost} bsStyle="danger" bsSize="xsmall">Delete</Button>
+        <p>{timeSinceOpened}</p>
+        <DeletePost id={props.id}/>
     </div>
   )
 };
@@ -35,8 +36,7 @@ Post.propTypes = {
   title: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  postTime: PropTypes.object,
-  timeSincePost: PropTypes.string
+  postTime: PropTypes.number,
 }
 
 export default Post;

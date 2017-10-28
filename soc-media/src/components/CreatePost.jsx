@@ -3,26 +3,36 @@ import Post from "../models/Post.js";
 import { FormControl } from "react-bootstrap";
 import { FormGroup } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-
+import { connect } from 'react-redux';
+import { v4 } from 'uuid';
+import c from './../constants';
 
 class CreatePost extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
-      content: "Say something",
-    }
     this.updateContent = this.updateContent.bind(this);
   }
   updateContent(){
     event.preventDefault()
     const {_content, _title} = this.refs;
     console.log(this.refs);
+
     let author = "Billy Bones";
     let avatar = "http://i231.photobucket.com/albums/ee4/koolitzzz/GangstaChimp.jpg"
-    var newPost = new Post(author , _title.value, avatar, _content.value)
+    const {dispatch} = this.props;
+    const action = {
+      type: c.ADD_POST,
+      author: author,
+      title: _title.value,
+      avatar: avatar,
+      content: _content.value,
+      postTime: new Date().getTime(),
+      id: v4()
+    }
+    dispatch(action);
     console.log("updatecontent");
-    console.log(newPost)
-    this.props.passthroughPost(newPost);
+    this.props.hideForm();
+
     _title.value = "";
     _content.value = "";
   }
@@ -52,4 +62,4 @@ class CreatePost extends React.Component{
   }
 }
 
-export default CreatePost;
+export default connect()(CreatePost);

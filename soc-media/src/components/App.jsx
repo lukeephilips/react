@@ -11,10 +11,6 @@ class App extends React.Component {
   }
   render() {
     const style = {
-      // marginLeft: "10px",
-      // marginRight: "10px",
-
-
       fontFamily: "Arial",
     }
 

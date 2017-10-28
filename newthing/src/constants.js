@@ -1,3 +1,3 @@
 export default {
-  ADD_TICKET : "ADD_TICKET"
+  ADD_POST : "ADD_POST"
 }

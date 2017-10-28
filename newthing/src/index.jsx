@@ -1,14 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { AppContainer } from 'react-hot-loader';
-
+import { createStore } from 'redux';
+import reducer from './reducers/ticket-list-reducer';
 import App from "./components/App";
+import {Provider} from 'react-redux';
+
+const store = createStore(reducer);
 
 const render = (Component) => {
   ReactDOM.render(
-    <AppContainer>
+    <Provider>
       <Component/>
-    </AppContainer>,
+    </Provider>,
     document.getElementById('react-app-root')
   );
 };

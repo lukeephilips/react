@@ -11,7 +11,6 @@ class CreatePostControl extends React.Component{
       showForm: false,
     }
     this.handleShowForm = this.handleShowForm.bind(this);
-    this.passthroughPost = this.passthroughPost.bind(this);
     this.hideForm = this.hideForm.bind(this);
 
 
@@ -19,10 +18,7 @@ class CreatePostControl extends React.Component{
   hideForm(){
     this.setState({showForm: false})
   }
-  passthroughPost(post){
-    this.hideForm();
-    this.props.handleNewPost(post);
-  }
+
   handleShowForm() {
     this.setState({showForm: true})
   }
@@ -36,7 +32,7 @@ class CreatePostControl extends React.Component{
           bsSize="small">
           <Modal.Header>Say Something</Modal.Header>
           <Modal.Body>
-            <CreatePost passthroughPost={this.passthroughPost} />
+            <CreatePost hideForm={this.hideForm}/>
           </Modal.Body>
         </Modal>
       )
