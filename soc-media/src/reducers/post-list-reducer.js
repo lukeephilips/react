@@ -21,7 +21,6 @@ export default (state = [], action) => {
       let newState = state.filter(post => post.id !== action.id)
       console.log(newState);
       return newState;
-
     default:
       return state;
   }

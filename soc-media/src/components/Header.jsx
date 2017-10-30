@@ -1,6 +1,4 @@
 import React from "react";
-import Search from "./Search";
-
 
 function Header(props){
   let style = {
@@ -12,7 +10,7 @@ function Header(props){
   return (
     <div style={style}>
       <h1>HoboFacts</h1>
-      <Search />
+      {/* <Search /> */}
     </div>
   )
 }

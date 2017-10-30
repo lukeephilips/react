@@ -4,6 +4,13 @@ import { createStore } from 'redux';
 
 
 describe("Post list reducer", () => {
+  const initialState = [{
+    author: "Billy",
+    title: "Test",
+    avatar: "avatar",
+    content: "content",
+    id: 0
+  }]
   let action;
   const postInfo = {
     author: "Billy",
@@ -34,13 +41,6 @@ describe("Post list reducer", () => {
     expect(postList([], action)).toEqual([postInfo]);
   });
   test("should delete post from list array", () => {
-    const initialState = [{
-      author: "Billy",
-      title: "Test",
-      avatar: "avatar",
-      content: "content",
-      id: 0
-    }]
     action = {
       id: 0,
       type: constants.DELETE_POST

@@ -2,7 +2,6 @@ import React from "react";
 
 function Author(props){
   const style ={
-    margin: "5px",
   };
   return (
     <div style={style} className="row">
